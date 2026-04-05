@@ -1,0 +1,21 @@
+{
+  "name": "couples",
+  "version": "1.0.0",
+  "description": "Couples Compatibility Quiz",
+  "main": "index.html",
+  "scripts": {
+    "dev": "npx serve .",
+    "build": "echo 'No build step required for static HTML'",
+    "lint": "echo 'No linter configured'"
+  },
+  "keywords": [
+    "couples",
+    "quiz",
+    "compatibility"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "@vercel/analytics": "^1.4.1"
+  }
+}
