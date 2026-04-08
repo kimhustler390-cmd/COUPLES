@@ -7,7 +7,16 @@
 <style>
   @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@400;500&display=swap');
   *{box-sizing:border-box;margin:0;padding:0}
-  :root{--rose:#c0556a;--rose-l:#fce8ec;--rose-d:#8a2a3a;--blue:#2a5db0;--blue-l:#e8f0fe;--green:#2e7d32;--green-l:#e8f5e9;--red:#c62828;--red-l:#ffebee;--bg:#fdf8f6;--card:#fff;--border:#e8e0dc;--txt:#1a1007;--txt2:#6b5a52;--txt3:#a89089;--serif:'DM Serif Display',Georgia,serif;--sans:'DM Sans',system-ui,sans-serif}
+  :root{
+    --rose:#c0556a;--rose-l:#fce8ec;--rose-d:#8a2a3a;
+    --blue:#2a5db0;--blue-l:#e8f0fe;
+    --green:#2e7d32;--green-l:#e8f5e9;
+    --red:#c62828;--red-l:#ffebee;
+    --bg:#fdf8f6;--card:#fff;--border:#e8e0dc;
+    --txt:#1a1007;--txt2:#6b5a52;--txt3:#a89089;
+    --serif:'DM Serif Display',Georgia,serif;
+    --sans:'DM Sans',system-ui,sans-serif
+  }
   body{font-family:var(--sans);background:var(--bg);color:var(--txt);min-height:100vh;display:flex;align-items:flex-start;justify-content:center;padding:1.5rem 1rem 3rem}
   .app{width:100%;max-width:440px}
   .scr{animation:fi .35s ease}
@@ -18,8 +27,8 @@
   .sub{font-size:13px;color:var(--txt2);text-align:center;margin-bottom:1.75rem}
   .card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:1.25rem;margin-bottom:.75rem}
   .card-hd{font-size:13px;font-weight:500;color:var(--txt);margin-bottom:.9rem;display:flex;align-items:center;gap:7px}
-  .badge{background:var(--rose-l);color:var(--rose-d);font-size:11px;font-weight:500;padding:2px 8px;border-radius:20px}
-  .badge-b{background:var(--blue-l);color:var(--blue);font-size:11px;font-weight:500;padding:2px 8px;border-radius:20px}
+  .badge{background:var(--rose-l);color:var(--rose-d);font-size:11px;font-weight:500;padding:2px 9px;border-radius:20px}
+  .badge-b{background:var(--blue-l);color:var(--blue);font-size:11px;font-weight:500;padding:2px 9px;border-radius:20px}
   label{display:block;font-size:11px;font-weight:500;text-transform:uppercase;letter-spacing:.06em;color:var(--txt2);margin-bottom:5px;margin-top:12px}
   label:first-of-type{margin-top:0}
   input[type=text]{width:100%;padding:11px 14px;font-size:15px;border:1px solid var(--border);border-radius:10px;background:var(--bg);color:var(--txt);outline:none;font-family:var(--sans);transition:border-color .15s}
@@ -27,8 +36,9 @@
   .code-inp{font-family:monospace;font-size:22px;letter-spacing:.15em;text-transform:uppercase;text-align:center}
   .btn{display:block;width:100%;padding:13px;font-size:14px;font-weight:500;border-radius:12px;cursor:pointer;transition:opacity .15s,transform .1s;margin-top:12px;text-align:center;border:none;font-family:var(--sans)}
   .btn:active{transform:scale(.97)}
-  .bp{background:var(--rose);color:#fff}.bp:hover{opacity:.88}
-  .bo{background:transparent;color:var(--rose);border:1.5px solid var(--rose)}.bo:hover{background:var(--rose-l)}
+  .btn:disabled{opacity:.5;cursor:not-allowed}
+  .bp{background:var(--rose);color:#fff}.bp:hover:not(:disabled){opacity:.88}
+  .bo{background:transparent;color:var(--rose);border:1.5px solid var(--rose)}.bo:hover:not(:disabled){background:var(--rose-l)}
   .btn-sm{width:auto;padding:9px 18px;font-size:13px;margin-top:0;border-radius:10px;display:inline-block}
   .or-row{display:flex;align-items:center;gap:10px;color:var(--txt3);font-size:12px;margin:.5rem 0}
   .or-row::before,.or-row::after{content:"";flex:1;height:1px;background:var(--border)}
@@ -55,7 +65,13 @@
   .opt{padding:11px 12px;font-size:13px;text-align:left;border:1px solid var(--border);border-radius:10px;background:var(--card);color:var(--txt);cursor:pointer;transition:all .15s;line-height:1.35;width:100%;font-family:var(--sans)}
   .opt:hover{border-color:var(--rose);background:var(--rose-l)}
   .opt.sel{border-color:var(--rose);background:var(--rose-l);color:var(--rose-d);font-weight:500}
-  .err{color:var(--red);font-size:12px;text-align:center;min-height:18px;margin:6px 0;font-weight:500}
+  .err{color:var(--red);font-size:13px;text-align:center;margin:8px 0;font-weight:500;background:var(--red-l);border-radius:8px;padding:8px 12px;display:none}
+  .err.show{display:block}
+  .setup-box{background:#fffbea;border:1px solid #f0d060;border-radius:14px;padding:1.25rem;margin-bottom:1.25rem}
+  .setup-box h3{font-size:14px;font-weight:500;color:#7a5c00;margin-bottom:.75rem}
+  .setup-box ol{padding-left:1.25rem;color:#7a5c00;font-size:13px;line-height:2.2}
+  .setup-box a{color:var(--blue)}
+  .setup-box code{background:#fef3cd;padding:1px 6px;border-radius:4px;font-family:monospace;font-size:12px;color:#5a4000}
   .score-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:1rem 0 1.5rem}
   .sc{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:1.25rem;text-align:center}
   .sc-n{font-family:var(--serif);font-size:46px;line-height:1;margin-bottom:4px}
@@ -65,7 +81,7 @@
   .v-e{font-size:30px;margin-bottom:6px}
   .v-t{font-family:var(--serif);font-size:22px;color:var(--rose-d);margin-bottom:5px}
   .v-s{font-size:13px;color:var(--rose-d);opacity:.8}
-  .div{height:1px;background:var(--border);margin:1.25rem 0}
+  .divider{height:1px;background:var(--border);margin:1.25rem 0}
   .sec{font-size:11px;font-weight:500;text-transform:uppercase;letter-spacing:.07em;color:var(--txt2);margin-bottom:.75rem}
   .q-row{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:11px 13px;margin-bottom:8px}
   .q-rt{font-size:12px;font-weight:500;color:var(--txt);margin-bottom:7px}
@@ -74,16 +90,25 @@
   .pa{background:var(--rose-l);color:var(--rose-d)}
   .pc{background:var(--green-l);color:var(--green)}
   .pw{background:var(--red-l);color:var(--red)}
-  .big-check{text-align:center;font-size:50px;margin-bottom:1rem;padding-top:1.5rem}
+  .big-icon{text-align:center;font-size:50px;margin-bottom:.75rem;padding-top:1.5rem}
 </style>
 </head>
 <body>
 <div class="app" id="app"></div>
 <script>
+
+// ══════════════════════════════════════════════════════
+//  PASTE YOUR FIREBASE DATABASE URL BELOW
+//  Example: "https://my-app-default-rtdb.firebaseio.com"
+//  Setup: console.firebase.google.com → Realtime Database
+// ══════════════════════════════════════════════════════
+const FIREBASE_URL = "https://couples-7aa2b-default-rtdb.firebaseio.com";
+// ══════════════════════════════════════════════════════
+
 const Q=[
   {q:"Ideal date night?",opts:["Cozy dinner at home","Fancy restaurant","Outdoor adventure","Movie or game night"]},
   {q:"Your love language?",opts:["Words of affirmation","Quality time","Physical touch","Acts of service"]},
-  {q:"When upset, you prefer...",opts:["Space to cool down","Talking it out","A long hug","Distraction — watch something"]},
+  {q:"When upset, you prefer...",opts:["Space to cool down","Talking it out","A long hug","Watch something together"]},
   {q:"Dream vacation?",opts:["Beach & island","City exploration","Nature & camping","Cultural & historical"]},
   {q:"You are more of a...",opts:["Morning person","Night owl","Somewhere in between","Depends on the day"]},
   {q:"Weekends are for...",opts:["Staying in & relaxing","Going out & socialising","Adventures & exploring","A mix of everything"]},
@@ -93,54 +118,48 @@ const Q=[
 
 let S={screen:'welcome',role:null,code:null,myName:'',partnerName:'',myAnswers:{},myGuesses:{},pollTimer:null};
 
-/* ── Storage helpers ── */
-async function gR(c){
-  try{
-    const r=await window.storage.get('cq:'+c,true);
-    return r?JSON.parse(r.value):null;
-  }catch(e){return null;}
+// Firebase REST API
+function fbUrl(code){return FIREBASE_URL.replace(/\/$/,'')+'/rooms/'+code+'.json';}
+async function gR(code){
+  try{const r=await fetch(fbUrl(code));return r.ok?await r.json():null;}catch{return null;}
 }
-async function sR(c,d){
-  try{await window.storage.set('cq:'+c,JSON.stringify(d),true);}
-  catch(e){console.error('storage set error',e);}
+async function sR(code,data){
+  try{await fetch(fbUrl(code),{method:'PUT',headers:{'Content-Type':'application/json'},body:JSON.stringify(data)});}
+  catch(e){console.error(e);}
 }
 
 function stopP(){if(S.pollTimer){clearInterval(S.pollTimer);S.pollTimer=null;}}
 function startP(fn){stopP();fn();S.pollTimer=setInterval(fn,3000);}
-function genCode(){
-  const ch='ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
-  return Array.from({length:6},()=>ch[Math.floor(Math.random()*ch.length)]).join('');
-}
+function genCode(){const c='ABCDEFGHJKLMNPQRSTUVWXYZ23456789';return Array.from({length:6},()=>c[Math.floor(Math.random()*c.length)]).join('');}
+
 function showErr(m){
   const el=document.getElementById('err');
-  if(el){el.textContent=m;setTimeout(()=>{if(el)el.textContent='';},4000);}
+  if(el){el.textContent=m;el.classList.add('show');setTimeout(()=>{if(el){el.textContent='';el.classList.remove('show');}},5000);}
 }
 
-/* ── Actions ── */
 async function createRoom(){
+  if(FIREBASE_URL==="YOUR_FIREBASE_URL_HERE")return showErr('Please add your Firebase URL first — see the yellow setup box above.');
   const name=(document.getElementById('n1')?.value||'').trim();
   if(!name)return showErr('Please enter your name first');
+  const btn=document.getElementById('btn-create');
+  if(btn){btn.disabled=true;btn.textContent='Creating room...';}
   S.myName=name;S.role='a';S.code=genCode();
-  const room={code:S.code,ts:Date.now(),
-    a:{name,answers:{},guesses:{},selfDone:false,guessDone:false},
-    b:null
-  };
-  await sR(S.code,room);
+  await sR(S.code,{code:S.code,ts:Date.now(),a:{name,answers:{},guesses:{},selfDone:false,guessDone:false},b:null});
   S.screen='waiting_partner';render();
-  startP(async()=>{
-    const rm=await gR(S.code);
-    if(rm?.b){stopP();S.partnerName=rm.b.name;S.screen='answering_self';render();}
-  });
+  startP(async()=>{const rm=await gR(S.code);if(rm?.b){stopP();S.partnerName=rm.b.name;S.screen='answering_self';render();}});
 }
 
 async function joinRoom(){
+  if(FIREBASE_URL==="YOUR_FIREBASE_URL_HERE")return showErr('Please add your Firebase URL first — see the yellow setup box above.');
   const name=(document.getElementById('n2')?.value||'').trim();
-  const code=(document.getElementById('c2')?.value||'').trim().toUpperCase();
-  if(!name)return showErr('Enter your name');
-  if(code.length<4)return showErr('Enter the 6-letter room code');
+  const code=(document.getElementById('c2')?.value||'').trim().toUpperCase().replace(/\s/g,'');
+  if(!name)return showErr('Please enter your name');
+  if(code.length<4)return showErr('Please enter the 6-letter room code');
+  const btn=document.getElementById('btn-join');
+  if(btn){btn.disabled=true;btn.textContent='Joining...';}
   const rm=await gR(code);
-  if(!rm)return showErr('Room not found — double-check the code!');
-  if(rm.b)return showErr('Room is already full — ask your partner to start a new game.');
+  if(!rm){if(btn){btn.disabled=false;btn.textContent='Join room ➜';}return showErr('Room not found — check the code and try again!');}
+  if(rm.b){if(btn){btn.disabled=false;btn.textContent='Join room ➜';}return showErr('Room is already full!');}
   S.myName=name;S.partnerName=rm.a.name;S.role='b';S.code=code;
   rm.b={name,answers:{},guesses:{},selfDone:false,guessDone:false};
   await sR(code,rm);
@@ -150,182 +169,147 @@ async function joinRoom(){
 function pick(qi,oi){
   if(S.screen==='answering_self')S.myAnswers[qi]=oi;
   else if(S.screen==='guessing')S.myGuesses[qi]=oi;
-  document.querySelectorAll(`.qb[data-q="${qi}"] .opt`).forEach(b=>b.classList.remove('sel'));
-  document.querySelector(`.qb[data-q="${qi}"] [data-o="${oi}"]`)?.classList.add('sel');
+  document.querySelectorAll('.qb[data-q="'+qi+'"] .opt').forEach(b=>b.classList.remove('sel'));
+  document.querySelector('.qb[data-q="'+qi+'"] [data-o="'+oi+'"]')?.classList.add('sel');
 }
 
 async function submitSelf(){
   if(Object.keys(S.myAnswers).length<Q.length)return showErr('Please answer all '+Q.length+' questions!');
+  const btn=document.getElementById('btn-self');
+  if(btn){btn.disabled=true;btn.textContent='Saving...';}
   const rm=await gR(S.code);
-  if(!rm)return showErr('Connection error — try again.');
+  if(!rm){if(btn){btn.disabled=false;btn.textContent='Lock in my answers ➜';}return showErr('Connection error — try again.');}
   rm[S.role].answers=S.myAnswers;rm[S.role].selfDone=true;
   await sR(S.code,rm);
   const other=S.role==='a'?rm.b:rm.a;
   if(other?.selfDone){stopP();S.screen='guessing';render();}
-  else{
-    S.screen='waiting_self';render();
-    startP(async()=>{
-      const r=await gR(S.code);
-      const o=S.role==='a'?r?.b:r?.a;
-      if(o?.selfDone){stopP();S.screen='guessing';render();}
-    });
-  }
+  else{S.screen='waiting_self';render();startP(async()=>{const r=await gR(S.code);const o=S.role==='a'?r?.b:r?.a;if(o?.selfDone){stopP();S.screen='guessing';render();}});}
 }
 
 async function submitGuess(){
   if(Object.keys(S.myGuesses).length<Q.length)return showErr('Please answer all '+Q.length+' questions!');
+  const btn=document.getElementById('btn-guess');
+  if(btn){btn.disabled=true;btn.textContent='Submitting...';}
   const rm=await gR(S.code);
-  if(!rm)return showErr('Connection error — try again.');
+  if(!rm){if(btn){btn.disabled=false;btn.textContent='Submit my guesses ➜';}return showErr('Connection error — try again.');}
   rm[S.role].guesses=S.myGuesses;rm[S.role].guessDone=true;
   await sR(S.code,rm);
   const other=S.role==='a'?rm.b:rm.a;
   if(other?.guessDone){stopP();S.screen='results';render();}
-  else{
-    S.screen='waiting_guess';render();
-    startP(async()=>{
-      const r=await gR(S.code);
-      const o=S.role==='a'?r?.b:r?.a;
-      if(o?.guessDone){stopP();S.screen='results';render();}
-    });
-  }
+  else{S.screen='waiting_guess';render();startP(async()=>{const r=await gR(S.code);const o=S.role==='a'?r?.b:r?.a;if(o?.guessDone){stopP();S.screen='results';render();}});}
 }
 
 function copyCode(){
   navigator.clipboard?.writeText(S.code).catch(()=>{});
   const el=document.getElementById('copy-hint');
-  if(el){el.textContent='✓ Copied to clipboard!';setTimeout(()=>{if(el)el.textContent='';},2500);}
+  if(el){el.textContent='✓ Copied!';setTimeout(()=>{if(el)el.textContent='';},2500);}
 }
 
-/* ── Question HTML builder ── */
 function buildQs(questions,saved){
   return questions.map((q,i)=>`
     <div class="qb" data-q="${i}">
       <div class="q-meta">Question ${i+1} of ${Q.length}</div>
       <div class="q-text">${q.q}</div>
-      <div class="opts">${q.opts.map((o,j)=>`
-        <button class="opt${saved[i]===j?' sel':''}" data-o="${j}" onclick="pick(${i},${j})">${o}</button>
-      `).join('')}</div>
-    </div>
-  `).join('');
+      <div class="opts">${q.opts.map((o,j)=>`<button class="opt${saved[i]===j?' sel':''}" data-o="${j}" onclick="pick(${i},${j})">${o}</button>`).join('')}</div>
+    </div>`).join('');
 }
 
-/* ── Render ── */
 async function render(){
   const app=document.getElementById('app');
   const pn=S.partnerName||'your partner';
+  const needSetup=FIREBASE_URL==="YOUR_FIREBASE_URL_HERE";
 
-  /* WELCOME */
   if(S.screen==='welcome'){
     app.innerHTML=`<div class="scr">
       <div class="logo">♥</div>
       <h1>Do You Really Know Me?</h1>
-      <p class="sub">A real-time couples quiz — each plays on their own phone</p>
+      <p class="sub">Real-time couples quiz — each plays on their own phone</p>
+      ${needSetup?`<div class="setup-box">
+        <h3>⚡ One-time Firebase setup (free, ~2 minutes)</h3>
+        <ol>
+          <li>Go to <a href="https://console.firebase.google.com" target="_blank">console.firebase.google.com</a></li>
+          <li>Click <strong>Add project</strong> → give it any name → Continue</li>
+          <li>Left menu → <strong>Build → Realtime Database → Create Database</strong></li>
+          <li>Choose any region → click <strong>Start in test mode</strong> → Enable</li>
+          <li>Copy the URL shown (e.g. <code>https://my-app-default-rtdb.firebaseio.com</code>)</li>
+          <li>Open this HTML file in a text editor, replace <code>https://couples-7aa2b-default-rtdb.firebaseio.com</code> with your URL, save &amp; reopen</li>
+        </ol>
+      </div>`:''}
       <div class="card">
         <div class="card-hd"><span class="badge">NEW GAME</span> Create a room</div>
         <label>Your name</label>
         <input type="text" id="n1" placeholder="e.g. Amara" maxlength="20"/>
-        <button class="btn bp" onclick="createRoom()">Create room & get code ♥</button>
+        <button id="btn-create" class="btn bp" onclick="createRoom()">Create room & get code ♥</button>
       </div>
       <div class="or-row"><span>already have a code?</span></div>
       <div class="card">
         <div class="card-hd"><span class="badge-b">JOIN</span> Enter room code</div>
         <label>Your name</label>
         <input type="text" id="n2" placeholder="e.g. Kevin" maxlength="20"/>
-        <label>Room code (from partner)</label>
+        <label>Room code (from your partner)</label>
         <input type="text" id="c2" class="code-inp" placeholder="ABC123" maxlength="6"/>
-        <button class="btn bo" onclick="joinRoom()">Join room ➜</button>
+        <button id="btn-join" class="btn bo" onclick="joinRoom()">Join room ➜</button>
       </div>
       <div id="err" class="err"></div>
-    </div>`;
-  }
+    </div>`;}
 
-  /* WAITING FOR PARTNER TO JOIN */
   else if(S.screen==='waiting_partner'){
     app.innerHTML=`<div class="scr">
       <div class="logo">♥</div>
       <h1>Share this code!</h1>
-      <p class="sub">Send it to your partner — they enter it on their phone</p>
-      <div class="copy-row">
-        <div class="code-display">${S.code}</div>
-        <button class="btn bo btn-sm" onclick="copyCode()">Copy</button>
-      </div>
+      <p class="sub">Your partner enters this on their phone to join</p>
+      <div class="copy-row"><div class="code-display">${S.code}</div><button class="btn bo btn-sm" onclick="copyCode()">Copy</button></div>
       <span id="copy-hint" class="copy-hint"></span>
-      <div class="info-box">
-        <strong>How to share</strong>
-        Send via WhatsApp, read it out loud, or screenshot this screen.
-        Your partner opens the same link and enters this code.
-      </div>
-      <div class="dots-wrap">
-        <div class="dots"><span></span><span></span><span></span></div>
-        <p class="wait-txt">Waiting for your partner to join...</p>
-      </div>
-    </div>`;
-  }
+      <div class="info-box"><strong>How to share</strong>Send via WhatsApp, read it out loud, or screenshot this screen. Your partner opens this same file and enters the code.</div>
+      <div class="dots-wrap"><div class="dots"><span></span><span></span><span></span></div><p class="wait-txt">Waiting for your partner to join...</p></div>
+    </div>`;}
 
-  /* ANSWERING ABOUT YOURSELF */
   else if(S.screen==='answering_self'){
     app.innerHTML=`<div class="scr">
-      <div class="phase-tag pt-rose">♥ Step 1 of 2 — About you</div>
+      <div class="phase-tag pt-rose">♥ Step 1 of 2 — About yourself</div>
       <div class="info-box"><strong>Hey ${S.myName}!</strong>Answer honestly about yourself. ${pn} won't see this yet.</div>
       <div class="prog"><div class="prog-f" style="width:33%"></div></div>
       ${buildQs(Q,S.myAnswers)}
       <div id="err" class="err"></div>
-      <button class="btn bp" onclick="submitSelf()">Lock in my answers ➜</button>
-    </div>`;
-  }
+      <button id="btn-self" class="btn bp" onclick="submitSelf()">Lock in my answers ➜</button>
+    </div>`;}
 
-  /* WAITING FOR PARTNER TO FINISH THEIR ANSWERS */
   else if(S.screen==='waiting_self'){
     app.innerHTML=`<div class="scr">
-      <div class="big-check">✓</div>
+      <div class="big-icon">✓</div>
       <h1>Answers saved!</h1>
       <p class="sub" style="margin-top:.5rem">Waiting for ${pn} to finish answering...</p>
-      <div class="dots-wrap">
-        <div class="dots"><span></span><span></span><span></span></div>
-        <p class="wait-txt">This will update automatically ♥</p>
-      </div>
-    </div>`;
-  }
+      <div class="dots-wrap"><div class="dots"><span></span><span></span><span></span></div><p class="wait-txt">This updates automatically ♥</p></div>
+    </div>`;}
 
-  /* GUESSING PARTNER'S ANSWERS */
   else if(S.screen==='guessing'){
-    const gQs=Q.map(q=>({...q,q:`What did ${pn} answer: "${q.q}"`}));
+    const gQs=Q.map(q=>({...q,q:'What did '+pn+' answer: "'+q.q+'"'}));
     app.innerHTML=`<div class="scr">
       <div class="phase-tag pt-blue">✦ Step 2 of 2 — Guess ${pn}'s answers</div>
-      <div class="info-box"><strong>Now guess, ${S.myName}!</strong>What do you think ${pn} said about themselves?</div>
+      <div class="info-box"><strong>Your turn, ${S.myName}!</strong>What do you think ${pn} said about themselves?</div>
       <div class="prog"><div class="prog-f" style="width:66%"></div></div>
       ${buildQs(gQs,S.myGuesses)}
       <div id="err" class="err"></div>
-      <button class="btn bp" onclick="submitGuess()">Submit my guesses ➜</button>
-    </div>`;
-  }
+      <button id="btn-guess" class="btn bp" onclick="submitGuess()">Submit my guesses ➜</button>
+    </div>`;}
 
-  /* WAITING FOR PARTNER TO FINISH GUESSING */
   else if(S.screen==='waiting_guess'){
     app.innerHTML=`<div class="scr">
-      <div class="big-check">♥</div>
+      <div class="big-icon">♥</div>
       <h1>Guesses locked in!</h1>
       <p class="sub" style="margin-top:.5rem">Waiting for ${pn} to finish guessing...</p>
-      <div class="dots-wrap">
-        <div class="dots"><span></span><span></span><span></span></div>
-        <p class="wait-txt">Results will appear automatically ♥</p>
-      </div>
-    </div>`;
-  }
+      <div class="dots-wrap"><div class="dots"><span></span><span></span><span></span></div><p class="wait-txt">Results will appear automatically ♥</p></div>
+    </div>`;}
 
-  /* RESULTS */
   else if(S.screen==='results'){
     app.innerHTML=`<div class="scr"><div class="dots-wrap"><div class="dots"><span></span><span></span><span></span></div><p class="wait-txt">Loading results...</p></div></div>`;
     const rm=await gR(S.code);
-    if(!rm?.b){
-      app.innerHTML=`<div class="scr"><p class="sub" style="text-align:center;padding:2rem">Could not load results. Please refresh.</p></div>`;
-      return;
-    }
+    if(!rm?.b){app.innerHTML=`<div class="scr"><p class="sub" style="text-align:center;padding:2rem">Could not load results. Please refresh.</p></div>`;return;}
     const a=rm.a,b=rm.b;
     let sA=0,sB=0;
     Q.forEach((_,i)=>{
-      if(Number(a.guesses[i])===Number(b.answers[i]))sA++;
-      if(Number(b.guesses[i])===Number(a.answers[i]))sB++;
+      if(String(a.guesses[i])===String(b.answers[i]))sA++;
+      if(String(b.guesses[i])===String(a.answers[i]))sB++;
     });
     const pA=Math.round(sA/Q.length*100),pB=Math.round(sB/Q.length*100),avg=Math.round((pA+pB)/2);
     let em,vt,vs;
@@ -333,51 +317,29 @@ async function render(){
     else if(avg>=75){em='♥♥';vt='You really know each other!';vs='A strong connection — keep nurturing it!';}
     else if(avg>=50){em='♥';vt='Pretty good!';vs="You know a lot, but there's always more to discover.";}
     else if(avg>=30){em='♡';vt='Room to grow!';vs='More quality time = better scores. Book that date night!';}
-    else{em='✦';vt='Just getting started!';vs='A beautiful journey of discovery lies ahead of you.';}
+    else{em='✦';vt='Just getting started!';vs='A beautiful journey of discovery lies ahead.';}
 
-    const rows=(guesser,target,guesses,answers)=>Q.map((q,i)=>{
-      const ac=Number(answers[i]),gu=Number(guesses[i]),ok=gu===ac;
-      return `<div class="q-row">
-        <div class="q-rt">${q.q}</div>
-        <div class="pills">
-          <span class="pill pa">${target}: ${Q[i].opts[ac]??'?'}</span>
-          <span class="pill ${ok?'pc':'pw'}">${ok?'✓ Correct':'✗ '+( Q[i].opts[gu]??'?')}</span>
-        </div>
-      </div>`;
+    const rows=(targetName,guesses,answers)=>Q.map((q,i)=>{
+      const ok=String(guesses[i])===String(answers[i]);
+      return `<div class="q-row"><div class="q-rt">${q.q}</div><div class="pills">
+        <span class="pill pa">${targetName}: ${Q[i].opts[Number(answers[i])]??'?'}</span>
+        <span class="pill ${ok?'pc':'pw'}">${ok?'✓ Correct':'✗ '+(Q[i].opts[Number(guesses[i])]??'?')}</span>
+      </div></div>`;
     }).join('');
 
     app.innerHTML=`<div class="scr">
-      <div style="text-align:center;margin-bottom:1.25rem">
-        <div style="font-size:30px;margin-bottom:6px">♥</div>
-        <h1>Your Results</h1>
-        <p class="sub">${a.name} & ${b.name}</p>
-      </div>
-      <div class="verd">
-        <div class="v-e">${em}</div>
-        <div class="v-t">${vt}</div>
-        <div class="v-s">${vs}</div>
-      </div>
+      <div style="text-align:center;margin-bottom:1.25rem"><div style="font-size:30px;margin-bottom:6px">♥</div><h1>Your Results</h1><p class="sub">${a.name} & ${b.name}</p></div>
+      <div class="verd"><div class="v-e">${em}</div><div class="v-t">${vt}</div><div class="v-s">${vs}</div></div>
       <div class="score-grid">
-        <div class="sc">
-          <div class="sc-nm">${a.name} knows ${b.name}</div>
-          <div class="sc-n" style="color:var(--rose)">${pA}%</div>
-          <div class="sc-l">${sA}/${Q.length} correct</div>
-        </div>
-        <div class="sc">
-          <div class="sc-nm">${b.name} knows ${a.name}</div>
-          <div class="sc-n" style="color:var(--blue)">${pB}%</div>
-          <div class="sc-l">${sB}/${Q.length} correct</div>
-        </div>
+        <div class="sc"><div class="sc-nm">${a.name} knows ${b.name}</div><div class="sc-n" style="color:var(--rose)">${pA}%</div><div class="sc-l">${sA}/${Q.length} correct</div></div>
+        <div class="sc"><div class="sc-nm">${b.name} knows ${a.name}</div><div class="sc-n" style="color:var(--blue)">${pB}%</div><div class="sc-l">${sB}/${Q.length} correct</div></div>
       </div>
-      <div class="div"></div>
-      <div class="sec">${a.name}'s guesses about ${b.name}</div>
-      ${rows(a.name,b.name,a.guesses,b.answers)}
-      <div class="div"></div>
-      <div class="sec">${b.name}'s guesses about ${a.name}</div>
-      ${rows(b.name,a.name,b.guesses,a.answers)}
+      <div class="divider"></div>
+      <div class="sec">${a.name}'s guesses about ${b.name}</div>${rows(b.name,a.guesses,b.answers)}
+      <div class="divider"></div>
+      <div class="sec">${b.name}'s guesses about ${a.name}</div>${rows(a.name,b.guesses,a.answers)}
       <button class="btn bo" style="margin-top:1.75rem" onclick="restart()">Play again ↺</button>
-    </div>`;
-  }
+    </div>`;}
 }
 
 function restart(){
