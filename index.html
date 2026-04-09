@@ -106,14 +106,40 @@ const FIREBASE_URL = "https://couples-7aa2b-default-rtdb.firebaseio.com";
 // ══════════════════════════════════════════════════════
 
 const Q=[
+  // ── Lifestyle & Habits ──────────────────────────────
   {q:"Ideal date night?",opts:["Cozy dinner at home","Fancy restaurant","Outdoor adventure","Movie or game night"]},
   {q:"Your love language?",opts:["Words of affirmation","Quality time","Physical touch","Acts of service"]},
-  {q:"When upset, you prefer...",opts:["Space to cool down","Talking it out","A long hug","Watch something together"]},
-  {q:"Dream vacation?",opts:["Beach & island","City exploration","Nature & camping","Cultural & historical"]},
   {q:"You are more of a...",opts:["Morning person","Night owl","Somewhere in between","Depends on the day"]},
   {q:"Weekends are for...",opts:["Staying in & relaxing","Going out & socialising","Adventures & exploring","A mix of everything"]},
+  {q:"Your ideal home is...",opts:["Cosy & minimalist","Colourful & eclectic","Modern & sleek","Warm & homey"]},
+  {q:"How do you recharge?",opts:["Solo quiet time","Hanging with friends","Getting outdoors","Being with my partner"]},
+  {q:"Your go-to comfort food?",opts:["Pizza or burgers","Rice & home-cooked","Sushi or Asian food","Ice cream or desserts"]},
+  {q:"How do you handle stress?",opts:["Exercise or walk","Talk to someone","Distract myself","Sleep it off"]},
+  {q:"Your phone style?",opts:["Always on & replying","Reply when I can","Mostly on silent","Phone-free a lot"]},
+  {q:"Money mindset?",opts:["Save everything possible","Spend on experiences","Balance saving & fun","Treat yourself often"]},
+  // ── Relationship & Feelings ─────────────────────────
+  {q:"When upset, you prefer...",opts:["Space to cool down","Talking it out","A long hug","Watch something together"]},
+  {q:"Your relationship style?",opts:["Always together","Independent + quality time","Spontaneous","Routine & stable"]},
+  {q:"How do you show love most?",opts:["Cook or do things","Say it out loud","Give gifts","Lots of touch & hugs"]},
+  {q:"Biggest relationship value?",opts:["Trust & honesty","Loyalty","Fun & laughter","Emotional support"]},
+  {q:"After an argument you...",opts:["Need time alone","Want to resolve fast","Apologise quickly","Wait for them to come"]},
+  {q:"Your jealousy level?",opts:["Zero — very secure","Occasionally jealous","A little protective","Working on it"]},
+  {q:"How often do you say 'I love you'?",opts:["Multiple times a day","Once a day","When it feels right","Actions speak louder"]},
+  {q:"Long-distance — could you do it?",opts:["Yes, if we had to","Only short-term","Very difficult for me","No, dealbreaker"]},
+  // ── Dreams & Future ─────────────────────────────────
+  {q:"Dream vacation?",opts:["Beach & island","City exploration","Nature & camping","Cultural & historical"]},
+  {q:"Where do you see yourself in 5 years?",opts:["Settled with family","Growing my career","Travelling the world","Still figuring it out"]},
+  {q:"Kids — your take?",opts:["Yes, definitely want","Open to it","Not sure yet","Not for me"]},
+  {q:"Your career ambition?",opts:["Climb to the top","Work to live","Build my own thing","Passion over pay"]},
+  {q:"Ideal place to live?",opts:["Busy city","Quiet suburbs","Small town","Somewhere new every year"]},
   {q:"Perfect gift from a partner?",opts:["Thoughtful handmade","An experience","Something practical","Total surprise!"]},
-  {q:"Your relationship style?",opts:["Always together","Independent + quality time","Spontaneous","Routine & stable"]}
+  // ── Personality & Fun ───────────────────────────────
+  {q:"Your social battery?",opts:["Extrovert — love crowds","Introvert — need quiet","Ambivert","Context-dependent"]},
+  {q:"At a party you're usually...",opts:["Working the whole room","Sticking with my crew","On the dance floor","Looking for the exit"]},
+  {q:"Your humour style?",opts:["Sarcastic & dry","Goofy & silly","Witty & clever","Wholesome & warm"]},
+  {q:"Biggest pet peeve?",opts:["Lateness & flaking","Messy spaces","Bad communication","Fake people"]},
+  {q:"Your love for the gym?",opts:["Daily — it's life","A few times a week","Occasionally, reluctantly","Gym? What gym?"]},
+  {q:"Night out or night in?",opts:["Night out always","Night in always","Depends on my mood","Compromise — short outing"]}
 ];
 
 let S={screen:'welcome',role:null,code:null,myName:'',partnerName:'',myAnswers:{},myGuesses:{},pollTimer:null};
